@@ -5,7 +5,7 @@ import com.example.barkamol_avlod.dto.ResponseDto;
 import com.example.barkamol_avlod.entity.Category;
 import com.example.barkamol_avlod.repository.CategoryRepository;
 import com.example.barkamol_avlod.service.CategoryService;
-import com.example.barkamol_avlod.service.maper.CategoryMapper;
+import com.example.barkamol_avlod.service.mapper.CategoryMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

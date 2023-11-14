@@ -5,7 +5,7 @@ import com.example.barkamol_avlod.dto.StatisticsDto;
 import com.example.barkamol_avlod.entity.Statistics;
 import com.example.barkamol_avlod.repository.StatisticsRepository;
 import com.example.barkamol_avlod.service.StatisticsService;
-import com.example.barkamol_avlod.service.maper.StatisticsMapper;
+import com.example.barkamol_avlod.service.mapper.StatisticsMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

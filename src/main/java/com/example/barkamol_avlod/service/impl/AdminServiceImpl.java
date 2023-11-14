@@ -7,7 +7,7 @@ import com.example.barkamol_avlod.dto.ResponseDto;
 import com.example.barkamol_avlod.entity.Admin;
 import com.example.barkamol_avlod.repository.AdminRepository;
 import com.example.barkamol_avlod.service.AdminService;
-import com.example.barkamol_avlod.service.maper.AdminMapper;
+import com.example.barkamol_avlod.service.mapper.AdminMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;

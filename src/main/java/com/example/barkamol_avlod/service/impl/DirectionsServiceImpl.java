@@ -8,8 +8,8 @@ import com.example.barkamol_avlod.entity.Directions;
 import com.example.barkamol_avlod.repository.CategoryRepository;
 import com.example.barkamol_avlod.repository.DirectionsRepository;
 import com.example.barkamol_avlod.service.DirectionsService;
-import com.example.barkamol_avlod.service.maper.CategoryMapper;
-import com.example.barkamol_avlod.service.maper.DirectionsMapper;
+import com.example.barkamol_avlod.service.mapper.CategoryMapper;
+import com.example.barkamol_avlod.service.mapper.DirectionsMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

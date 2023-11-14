@@ -5,7 +5,7 @@ import com.example.barkamol_avlod.dto.ResponseDto;
 import com.example.barkamol_avlod.entity.AboutOfSchool;
 import com.example.barkamol_avlod.repository.AboutOfSchoolRepository;
 import com.example.barkamol_avlod.service.AboutOfSchoolService;
-import com.example.barkamol_avlod.service.maper.AboutOfSchoolMapper;
+import com.example.barkamol_avlod.service.mapper.AboutOfSchoolMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

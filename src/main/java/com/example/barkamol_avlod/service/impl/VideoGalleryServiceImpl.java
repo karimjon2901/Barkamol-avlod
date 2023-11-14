@@ -5,7 +5,7 @@ import com.example.barkamol_avlod.dto.VideoGalleryDto;
 import com.example.barkamol_avlod.entity.VideoGallery;
 import com.example.barkamol_avlod.repository.VideoGalleryRepository;
 import com.example.barkamol_avlod.service.VideoGalleryService;
-import com.example.barkamol_avlod.service.maper.VideoGalleryMapper;
+import com.example.barkamol_avlod.service.mapper.VideoGalleryMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

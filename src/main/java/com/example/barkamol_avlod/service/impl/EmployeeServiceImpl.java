@@ -6,8 +6,8 @@ import com.example.barkamol_avlod.dto.ResponseDto;
 import com.example.barkamol_avlod.entity.Employee;
 import com.example.barkamol_avlod.repository.EmployeeRepository;
 import com.example.barkamol_avlod.service.EmployeeService;
-import com.example.barkamol_avlod.service.maper.EmployeeInputMapper;
-import com.example.barkamol_avlod.service.maper.EmployeeMapper;
+import com.example.barkamol_avlod.service.mapper.EmployeeInputMapper;
+import com.example.barkamol_avlod.service.mapper.EmployeeMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

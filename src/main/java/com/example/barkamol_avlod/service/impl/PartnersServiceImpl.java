@@ -7,7 +7,7 @@ import com.example.barkamol_avlod.dto.ResponseDto;
 import com.example.barkamol_avlod.entity.Partners;
 import com.example.barkamol_avlod.repository.PartnersRepository;
 import com.example.barkamol_avlod.service.PartnersService;
-import com.example.barkamol_avlod.service.maper.PartnersMapper;
+import com.example.barkamol_avlod.service.mapper.PartnersMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

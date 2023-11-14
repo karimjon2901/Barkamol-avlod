@@ -7,7 +7,7 @@ import com.example.barkamol_avlod.dto.ResponseDto;
 import com.example.barkamol_avlod.entity.News;
 import com.example.barkamol_avlod.repository.NewsRepository;
 import com.example.barkamol_avlod.service.NewsService;
-import com.example.barkamol_avlod.service.maper.NewsMapper;
+import com.example.barkamol_avlod.service.mapper.NewsMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

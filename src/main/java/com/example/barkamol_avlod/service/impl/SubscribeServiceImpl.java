@@ -4,7 +4,7 @@ import com.example.barkamol_avlod.dto.ResponseDto;
 import com.example.barkamol_avlod.dto.SubscribeDto;
 import com.example.barkamol_avlod.repository.SubscribeRepository;
 import com.example.barkamol_avlod.service.SubscribeService;
-import com.example.barkamol_avlod.service.maper.SubscribeMapper;
+import com.example.barkamol_avlod.service.mapper.SubscribeMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

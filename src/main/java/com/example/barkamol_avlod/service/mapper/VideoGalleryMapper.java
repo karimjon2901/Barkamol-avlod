@@ -1,4 +1,4 @@
-package com.example.barkamol_avlod.service.maper;
+package com.example.barkamol_avlod.service.mapper;
 
 import com.example.barkamol_avlod.dto.VideoGalleryDto;
 import com.example.barkamol_avlod.entity.VideoGallery;
