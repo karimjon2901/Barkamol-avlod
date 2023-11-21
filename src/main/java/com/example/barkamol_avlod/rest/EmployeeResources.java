@@ -6,8 +6,6 @@ import com.example.barkamol_avlod.dto.ResponseDto;
 import com.example.barkamol_avlod.service.EmployeeService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.security.SecurityRequirement;
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -27,9 +25,8 @@ public class EmployeeResources {
                     content = @Content(mediaType = "multipart/form-data")),
             summary = "Add"
     )
-    @SecurityRequirement(name = "Authorization")
     @PostMapping(consumes = { MediaType.MULTIPART_FORM_DATA_VALUE})
-    public ResponseDto<EmployeeDto> add(@Valid @ModelAttribute EmployeeInputDto employeeInputDto){
+    public ResponseDto<EmployeeDto> add(@ModelAttribute EmployeeInputDto employeeInputDto){
         return service.add(employeeInputDto);
     }
 
@@ -64,9 +61,8 @@ public class EmployeeResources {
                     content = @Content(mediaType = "multipart/form-data")),
             summary = "Update"
     )
-    @SecurityRequirement(name = "Authorization")
     @PatchMapping(consumes = { MediaType.MULTIPART_FORM_DATA_VALUE})
-    public ResponseDto<EmployeeDto> update(@Valid @ModelAttribute EmployeeInputDto employeeInputDto){
+    public ResponseDto<EmployeeDto> update(@ModelAttribute EmployeeInputDto employeeInputDto){
         return service.update(employeeInputDto);
     }
 
@@ -77,7 +73,6 @@ public class EmployeeResources {
                     content = @Content(mediaType = "application/json")),
             summary = "Delete"
     )
-    @SecurityRequirement(name = "Authorization")
     @DeleteMapping("/{id}")
     public ResponseDto<EmployeeDto> delete(@PathVariable Integer id){
         return service.delete(id);

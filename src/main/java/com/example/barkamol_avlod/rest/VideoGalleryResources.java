@@ -5,8 +5,6 @@ import com.example.barkamol_avlod.dto.VideoGalleryDto;
 import com.example.barkamol_avlod.service.VideoGalleryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.security.SecurityRequirement;
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,9 +23,8 @@ public class VideoGalleryResources {
                     content = @Content(mediaType = "application/json")),
             summary = "add"
     )
-    @SecurityRequirement(name = "Authorization")
     @PostMapping
-    public ResponseDto<VideoGalleryDto> add(@Valid @RequestBody VideoGalleryDto videoGalleryDto){
+    public ResponseDto<VideoGalleryDto> add(@RequestBody VideoGalleryDto videoGalleryDto){
         return service.add(videoGalleryDto);
     }
 
@@ -62,9 +59,8 @@ public class VideoGalleryResources {
                     content = @Content(mediaType = "application/json")),
             summary = "Update"
     )
-    @SecurityRequirement(name = "Authorization")
     @PatchMapping
-    public ResponseDto<VideoGalleryDto> update(@Valid @RequestBody VideoGalleryDto videoGalleryDto){
+    public ResponseDto<VideoGalleryDto> update(@RequestBody VideoGalleryDto videoGalleryDto){
         return service.update(videoGalleryDto);
     }
 
@@ -75,7 +71,6 @@ public class VideoGalleryResources {
                     content = @Content(mediaType = "application/json")),
             summary = "Delete"
     )
-    @SecurityRequirement(name = "Authorization")
     @DeleteMapping("/{id}")
     public ResponseDto<VideoGalleryDto> delete(@PathVariable Integer id){
         return service.delete(id);

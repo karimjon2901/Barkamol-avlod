@@ -17,7 +17,6 @@ import org.springframework.web.multipart.MultipartFile;
 public class DirectionsInputDto {
     private Integer id;
     @NotNull(message = AppStatusMessage.NULL_VALUE)
-    @NotEmpty(message = AppStatusMessage.EMPTY_STRING)
     private Integer category;
     @NotNull(message = AppStatusMessage.NULL_VALUE)
     private MultipartFile image;

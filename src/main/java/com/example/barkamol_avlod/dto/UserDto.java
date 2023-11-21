@@ -14,7 +14,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class AdminDto {
+public class UserDto {
     private Integer id;
     @NotNull(message = AppStatusMessage.NULL_VALUE)
     @NotEmpty(message = AppStatusMessage.EMPTY_STRING)

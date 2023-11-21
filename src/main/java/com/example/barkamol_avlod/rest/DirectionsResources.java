@@ -6,8 +6,6 @@ import com.example.barkamol_avlod.dto.ResponseDto;
 import com.example.barkamol_avlod.service.DirectionsService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.security.SecurityRequirement;
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -27,9 +25,8 @@ public class DirectionsResources {
                     content = @Content(mediaType = "multipart/form-data")),
             summary = "add"
     )
-    @SecurityRequirement(name = "Authorization")
     @PostMapping(consumes = { MediaType.MULTIPART_FORM_DATA_VALUE})
-    public ResponseDto<DirectionsDto> add(@Valid @ModelAttribute DirectionsInputDto directionsInputDto){
+    public ResponseDto<DirectionsDto> add(@ModelAttribute DirectionsInputDto directionsInputDto){
         return service.add(directionsInputDto);
     }
 
@@ -64,9 +61,8 @@ public class DirectionsResources {
                     content = @Content(mediaType = "multipart/form-data")),
             summary = "Update"
     )
-    @SecurityRequirement(name = "Authorization")
     @PatchMapping(consumes = { MediaType.MULTIPART_FORM_DATA_VALUE})
-    public ResponseDto<DirectionsDto> update(@Valid @ModelAttribute DirectionsInputDto directionsInputDto){
+    public ResponseDto<DirectionsDto> update(@ModelAttribute DirectionsInputDto directionsInputDto){
         return service.update(directionsInputDto);
     }
 
@@ -77,7 +73,6 @@ public class DirectionsResources {
                     content = @Content(mediaType = "application/json")),
             summary = "Delete"
     )
-    @SecurityRequirement(name = "Authorization")
     @DeleteMapping("/{id}")
     public ResponseDto<DirectionsDto> delete(@PathVariable Integer id){
         return service.delete(id);

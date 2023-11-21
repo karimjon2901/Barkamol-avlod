@@ -5,8 +5,6 @@ import com.example.barkamol_avlod.dto.ResponseDto;
 import com.example.barkamol_avlod.service.AboutOfSchoolService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.security.SecurityRequirement;
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class AboutOfSchoolResources {
     private final AboutOfSchoolService aboutOfSchoolService;
-    @SecurityRequirement(name = "Authorization")
     @Operation(
             method = "Update about of school",
             description = "Need to send AboutOfSchoolDto to this endpoint to update",
@@ -24,7 +21,7 @@ public class AboutOfSchoolResources {
             summary = "Update"
     )
     @PostMapping
-    public ResponseDto<AboutOfSchoolDto> update(@Valid @RequestBody AboutOfSchoolDto aboutOfSchoolDto){
+    public ResponseDto<AboutOfSchoolDto> update(@RequestBody AboutOfSchoolDto aboutOfSchoolDto){
         return aboutOfSchoolService.update(aboutOfSchoolDto);
     }
 

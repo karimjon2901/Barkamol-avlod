@@ -5,8 +5,6 @@ import com.example.barkamol_avlod.dto.ResponseDto;
 import com.example.barkamol_avlod.service.CategoryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.security.SecurityRequirement;
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,9 +23,8 @@ public class CategoryResources {
                     content = @Content(mediaType = "application/json")),
             summary = "add"
     )
-    @SecurityRequirement(name = "Authorization")
     @PostMapping
-    public ResponseDto<CategoryDto> add(@Valid @RequestBody CategoryDto categoryDto){
+    public ResponseDto<CategoryDto> add(@RequestBody CategoryDto categoryDto){
         return categoryService.addCategory(categoryDto);
     }
 
@@ -61,7 +58,6 @@ public class CategoryResources {
                     content = @Content(mediaType = "application/json")),
             summary = "Delete"
     )
-    @SecurityRequirement(name = "Authorization")
     @DeleteMapping("/{id}")
     public ResponseDto<Void> delete(@PathVariable Integer id){
         return categoryService.delete(id);
@@ -74,9 +70,8 @@ public class CategoryResources {
                     content = @Content(mediaType = "application/json")),
             summary = "Update"
     )
-    @SecurityRequirement(name = "Authorization")
     @PatchMapping
-    public ResponseDto<CategoryDto> update(@Valid @RequestBody CategoryDto categoryDto){
+    public ResponseDto<CategoryDto> update(@RequestBody CategoryDto categoryDto){
         return categoryService.update(categoryDto);
     }
 }

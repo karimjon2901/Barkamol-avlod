@@ -5,8 +5,6 @@ import com.example.barkamol_avlod.dto.SubscribeDto;
 import com.example.barkamol_avlod.service.SubscribeService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.security.SecurityRequirement;
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,18 +24,15 @@ public class SubscribeResources {
             summary = "Add"
     )
     @PostMapping
-    public ResponseDto<SubscribeDto> add(@Valid @RequestBody SubscribeDto subscribeDto){
+    public ResponseDto<SubscribeDto> add(@RequestBody SubscribeDto subscribeDto){
         return service.add(subscribeDto);
-    }
-
-    @Operation(
+    }@Operation(
             method = "Get all subscribes",
             description = "This endpoint return all subscribeDto",
             requestBody = @io.swagger.v3.oas.annotations.parameters.RequestBody(description = "Subscribe info",
                     content = @Content(mediaType = "application/json")),
             summary = "Get all"
     )
-    @SecurityRequirement(name = "Authorization")
     @GetMapping
     public ResponseDto<List<SubscribeDto>> getAll(){
         return service.getAll();

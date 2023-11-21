@@ -5,8 +5,6 @@ import com.example.barkamol_avlod.dto.StatisticsDto;
 import com.example.barkamol_avlod.service.StatisticsService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.security.SecurityRequirement;
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,9 +21,8 @@ public class StatisticsResources {
                     content = @Content(mediaType = "application/json")),
             summary = "Update"
     )
-    @SecurityRequirement(name = "Authorization")
     @PostMapping
-    public ResponseDto<StatisticsDto> update(@Valid @RequestBody StatisticsDto statisticsDto){
+    public ResponseDto<StatisticsDto> update(@RequestBody StatisticsDto statisticsDto){
         return service.update(statisticsDto);
     }
 

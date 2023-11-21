@@ -12,7 +12,7 @@ import java.util.Collections;
 @Getter
 @Setter
 @Entity
-public class Admin implements UserDetails {
+public class Users implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
