@@ -17,7 +17,7 @@ public class SubscribeResources {
     private final SubscribeService service;
 
     @Operation(
-            method = "Add statistics",
+            method = "Add subscribe",
             description = "Need to send SubscribeDto to this endpoint to add",
             requestBody = @io.swagger.v3.oas.annotations.parameters.RequestBody(description = "Subscribe info",
                     content = @Content(mediaType = "application/json")),
