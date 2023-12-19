@@ -50,7 +50,7 @@ public class EmployeeResources {
             summary = "By-id"
     )
     @GetMapping("/{id}")
-    public ResponseDto<EmployeeDto> getById(@PathVariable Integer id){
+    public ResponseDto<EmployeeDto> getById(@PathVariable String id){
         return service.getById(id);
     }
 
@@ -74,7 +74,7 @@ public class EmployeeResources {
             summary = "Delete"
     )
     @DeleteMapping("/{id}")
-    public ResponseDto<EmployeeDto> delete(@PathVariable Integer id){
+    public ResponseDto<EmployeeDto> delete(@PathVariable String id){
         return service.delete(id);
     }
 

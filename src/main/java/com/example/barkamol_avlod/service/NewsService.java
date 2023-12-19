@@ -9,11 +9,11 @@ import java.util.List;
 public interface NewsService {
     ResponseDto<NewsDto> add(NewsInputDto newsInputDto);
 
-    ResponseDto<NewsDto> getById(Integer id);
+    ResponseDto<NewsDto> getById(String id);
 
     ResponseDto<NewsDto> update(NewsInputDto newsInputDto);
 
-    ResponseDto<NewsDto> delete(Integer id);
+    ResponseDto<NewsDto> delete(String id);
 
     ResponseDto<List<NewsDto>> getAll();
 }

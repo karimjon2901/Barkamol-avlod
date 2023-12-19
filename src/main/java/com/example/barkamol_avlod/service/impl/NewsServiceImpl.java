@@ -6,6 +6,7 @@ import com.example.barkamol_avlod.dto.NewsInputDto;
 import com.example.barkamol_avlod.dto.ResponseDto;
 import com.example.barkamol_avlod.entity.News;
 import com.example.barkamol_avlod.repository.NewsRepository;
+import com.example.barkamol_avlod.service.IdGenerator;
 import com.example.barkamol_avlod.service.NewsService;
 import com.example.barkamol_avlod.service.mapper.NewsMapper;
 import lombok.RequiredArgsConstructor;
@@ -22,10 +23,12 @@ public class NewsServiceImpl implements NewsService {
     private final NewsMapper newsMapper;
     private final NewsRepository newsRepository;
     private final S3File s3File;
+    private final IdGenerator idGenerator;
     @Override
     public ResponseDto<NewsDto> add(NewsInputDto newsInputDto) {
         NewsDto newsDto = new NewsDto();
 
+        newsDto.setId(idGenerator.generate());
         newsDto.setTitleRU(newsInputDto.getTitleRU());
         newsDto.setTitleUZ(newsInputDto.getTitleUZ());
         newsDto.setTitleEN(newsInputDto.getTitleEN());
@@ -54,7 +57,7 @@ public class NewsServiceImpl implements NewsService {
     }
 
     @Override
-    public ResponseDto<NewsDto> getById(Integer id) {
+    public ResponseDto<NewsDto> getById(String id) {
         if (id == null){
             return ResponseDto.<NewsDto>builder()
                     .message(NULL_ID)
@@ -128,7 +131,7 @@ public class NewsServiceImpl implements NewsService {
     }
 
     @Override
-    public ResponseDto<NewsDto> delete(Integer id) {
+    public ResponseDto<NewsDto> delete(String id) {
         if (id == null) return ResponseDto.<NewsDto>builder()
                 .message(NULL_ID)
                 .build();

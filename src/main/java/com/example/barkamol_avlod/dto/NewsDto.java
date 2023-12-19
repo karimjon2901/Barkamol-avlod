@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 public class NewsDto {
-    private Integer id;
+    private String id;
     private String image;
 
     private String titleRU;

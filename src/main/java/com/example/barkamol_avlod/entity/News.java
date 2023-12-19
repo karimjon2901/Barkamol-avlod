@@ -20,8 +20,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class News {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private String id;
     private String image;
 
     private String titleRU;

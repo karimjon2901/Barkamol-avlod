@@ -15,9 +15,9 @@ import org.springframework.web.multipart.MultipartFile;
 @AllArgsConstructor
 @NoArgsConstructor
 public class DirectionsInputDto {
-    private Integer id;
+    private String id;
     @NotNull(message = AppStatusMessage.NULL_VALUE)
-    private Integer category;
+    private String category;
     @NotNull(message = AppStatusMessage.NULL_VALUE)
     private MultipartFile image;
     @NotNull(message = AppStatusMessage.NULL_VALUE)

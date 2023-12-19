@@ -17,12 +17,11 @@ import java.util.List;
 @NoArgsConstructor
 public class PhotoGallery {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private String id;
     private String titleRU;
     private String titleUZ;
     private String titleEN;
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Image> images;
     @CreatedDate
     private LocalDateTime createdAt;

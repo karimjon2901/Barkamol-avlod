@@ -13,5 +13,5 @@ public interface PartnersService {
 
     ResponseDto<PartnersDto> update(PartnersInputDto partnersInputDto);
 
-    ResponseDto<PartnersDto> delete(Integer id);
+    ResponseDto<PartnersDto> delete(String id);
 }

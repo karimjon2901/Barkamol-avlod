@@ -10,7 +10,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PartnersDto {
-    private Integer id;
+    private String id;
     private String image;
     private String nameRU;
     private String nameUZ;

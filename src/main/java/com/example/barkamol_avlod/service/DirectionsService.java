@@ -9,13 +9,13 @@ import java.util.List;
 public interface DirectionsService {
     ResponseDto<DirectionsDto> add(DirectionsInputDto directionsInputDto);
 
-    ResponseDto<DirectionsDto> getById(Integer id);
+    ResponseDto<DirectionsDto> getById(String id);
 
     ResponseDto<List<DirectionsDto>> getAll();
 
     ResponseDto<DirectionsDto> update(DirectionsInputDto directionsInputDto);
 
-    ResponseDto<DirectionsDto> delete(Integer id);
+    ResponseDto<DirectionsDto> delete(String id);
 
-    ResponseDto<List<DirectionsDto>> getByCategoryId(Integer categoryId);
+    ResponseDto<List<DirectionsDto>> getByCategoryId(String categoryId);
 }

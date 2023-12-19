@@ -8,6 +8,7 @@ import com.example.barkamol_avlod.entity.Directions;
 import com.example.barkamol_avlod.repository.CategoryRepository;
 import com.example.barkamol_avlod.repository.DirectionsRepository;
 import com.example.barkamol_avlod.service.DirectionsService;
+import com.example.barkamol_avlod.service.IdGenerator;
 import com.example.barkamol_avlod.service.mapper.CategoryMapper;
 import com.example.barkamol_avlod.service.mapper.DirectionsMapper;
 import lombok.RequiredArgsConstructor;
@@ -26,13 +27,14 @@ public class DirectionsServiceImpl implements DirectionsService {
     private final CategoryMapper categoryMapper;
     private final CategoryRepository categoryRepository;
     private final S3File s3File;
+    private final IdGenerator idGenerator;
 
     @Override
     public ResponseDto<DirectionsDto> add(DirectionsInputDto directionsInputDto) {
         try {
             DirectionsDto directionsDto = new DirectionsDto();
 
-
+            directionsDto.setId(idGenerator.generate());
             directionsDto.setCategory(categoryMapper.toDto(categoryRepository.findById(directionsInputDto.getCategory()).get()));
             directionsDto.setImage(s3File.postFile(directionsInputDto.getImage()));
             directionsDto.setNameRU(directionsInputDto.getNameRU());
@@ -57,7 +59,7 @@ public class DirectionsServiceImpl implements DirectionsService {
     }
 
     @Override
-    public ResponseDto<DirectionsDto> getById(Integer id) {
+    public ResponseDto<DirectionsDto> getById(String id) {
         if (id == null){
             return ResponseDto.<DirectionsDto>builder()
                     .message(NULL_ID)
@@ -143,7 +145,7 @@ public class DirectionsServiceImpl implements DirectionsService {
     }
 
     @Override
-    public ResponseDto<DirectionsDto> delete(Integer id) {
+    public ResponseDto<DirectionsDto> delete(String id) {
         if (id == null){
             return ResponseDto.<DirectionsDto>builder()
                     .message(NULL_ID)
@@ -173,7 +175,7 @@ public class DirectionsServiceImpl implements DirectionsService {
     }
 
     @Override
-    public ResponseDto<List<DirectionsDto>> getByCategoryId(Integer categoryId) {
+    public ResponseDto<List<DirectionsDto>> getByCategoryId(String categoryId) {
         if (categoryId == null){
             return ResponseDto.<List<DirectionsDto>>builder()
                     .message(NULL_ID)

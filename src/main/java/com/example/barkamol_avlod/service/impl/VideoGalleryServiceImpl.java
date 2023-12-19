@@ -52,7 +52,7 @@ public class VideoGalleryServiceImpl implements VideoGalleryService {
     }
 
     @Override
-    public ResponseDto<VideoGalleryDto> getById(Integer id) {
+    public ResponseDto<VideoGalleryDto> getById(String id) {
         if (id == null){
             return ResponseDto.<VideoGalleryDto>builder()
                     .message(NULL_ID)
@@ -117,7 +117,7 @@ public class VideoGalleryServiceImpl implements VideoGalleryService {
     }
 
     @Override
-    public ResponseDto<VideoGalleryDto> delete(Integer id) {
+    public ResponseDto<VideoGalleryDto> delete(String id) {
         if (id == null){
             return ResponseDto.<VideoGalleryDto>builder()
                     .message(NULL_ID)

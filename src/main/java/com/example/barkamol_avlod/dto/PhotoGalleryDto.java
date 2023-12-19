@@ -13,7 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PhotoGalleryDto {
-    private Integer id;
+    private String id;
     private String titleRU;
     private String titleUZ;
     private String titleEN;

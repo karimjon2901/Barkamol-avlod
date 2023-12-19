@@ -10,7 +10,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class DirectionsDto {
-    private Integer id;
+    private String id;
     private CategoryDto category;
     private String image;
     private String nameRU;

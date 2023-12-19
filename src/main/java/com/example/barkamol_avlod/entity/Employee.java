@@ -19,8 +19,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class Employee {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private String id;
     private String image;
     private String nameRU;
     private String nameUZ;

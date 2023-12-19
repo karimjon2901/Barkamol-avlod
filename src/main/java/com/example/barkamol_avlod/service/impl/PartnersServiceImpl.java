@@ -6,6 +6,7 @@ import com.example.barkamol_avlod.dto.PartnersInputDto;
 import com.example.barkamol_avlod.dto.ResponseDto;
 import com.example.barkamol_avlod.entity.Partners;
 import com.example.barkamol_avlod.repository.PartnersRepository;
+import com.example.barkamol_avlod.service.IdGenerator;
 import com.example.barkamol_avlod.service.PartnersService;
 import com.example.barkamol_avlod.service.mapper.PartnersMapper;
 import lombok.RequiredArgsConstructor;
@@ -22,11 +23,13 @@ public class PartnersServiceImpl implements PartnersService {
     private final PartnersRepository repository;
     private final PartnersMapper mapper;
     private final S3File s3File;
+    private final IdGenerator idGenerator;
 
     @Override
     public ResponseDto<PartnersDto> add(PartnersInputDto partnersInputDto) {
         try {
             PartnersDto partnersDto = new PartnersDto();
+            partnersDto.setId(idGenerator.generate());
             partnersDto.setImage(s3File.postFile(partnersInputDto.getImage()));
             partnersDto.setNameRU(partnersInputDto.getNameRU());
             partnersDto.setNameUZ(partnersInputDto.getNameUZ());
@@ -102,7 +105,7 @@ public class PartnersServiceImpl implements PartnersService {
     }
 
     @Override
-    public ResponseDto<PartnersDto> delete(Integer id) {
+    public ResponseDto<PartnersDto> delete(String id) {
         if (id == null){
             return ResponseDto.<PartnersDto>builder()
                     .message(NULL_ID)

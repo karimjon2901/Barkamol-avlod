@@ -38,7 +38,7 @@ public class NewsResources {
             summary = "By-id"
     )
     @GetMapping("/{id}")
-    public ResponseDto<NewsDto> getById(@PathVariable Integer id){
+    public ResponseDto<NewsDto> getById(@PathVariable String id){
         return service.getById(id);
     }
 
@@ -62,7 +62,7 @@ public class NewsResources {
             summary = "Delete"
     )
     @DeleteMapping("/{id}")
-    public ResponseDto<NewsDto> delete(@PathVariable Integer id){
+    public ResponseDto<NewsDto> delete(@PathVariable String id){
         return service.delete(id);
     }
 

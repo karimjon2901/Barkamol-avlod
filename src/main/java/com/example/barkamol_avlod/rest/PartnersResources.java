@@ -61,7 +61,7 @@ public class PartnersResources {
             summary = "Delete"
     )
     @DeleteMapping("/{id}")
-    public ResponseDto<PartnersDto> delete(@PathVariable Integer id){
+    public ResponseDto<PartnersDto> delete(@PathVariable String id){
         return service.delete(id);
     }
 }

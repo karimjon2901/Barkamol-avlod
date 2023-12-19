@@ -6,6 +6,7 @@ import com.example.barkamol_avlod.dto.ResponseDto;
 import com.example.barkamol_avlod.entity.Employee;
 import com.example.barkamol_avlod.repository.EmployeeRepository;
 import com.example.barkamol_avlod.service.EmployeeService;
+import com.example.barkamol_avlod.service.IdGenerator;
 import com.example.barkamol_avlod.service.mapper.EmployeeInputMapper;
 import com.example.barkamol_avlod.service.mapper.EmployeeMapper;
 import lombok.RequiredArgsConstructor;
@@ -22,11 +23,12 @@ public class EmployeeServiceImpl implements EmployeeService {
     private final EmployeeRepository repository;
     private final EmployeeMapper mapper;
     private final EmployeeInputMapper employeeInputMapper;
-
+    private final IdGenerator idGenerator;
     @Override
     public ResponseDto<EmployeeDto> add(EmployeeInputDto employeeInputDto) {
         try {
             EmployeeDto employeeDto = employeeInputMapper.toDto(employeeInputDto);
+            employeeDto.setId(idGenerator.generate());
             repository.save(mapper.toEntity(employeeDto));
 
             return ResponseDto.<EmployeeDto>builder()
@@ -57,7 +59,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public ResponseDto<EmployeeDto> getById(Integer id) {
+    public ResponseDto<EmployeeDto> getById(String id) {
         if (id == null){
             return ResponseDto.<EmployeeDto>builder()
                     .message(NULL_ID)
@@ -132,7 +134,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public ResponseDto<EmployeeDto> delete(Integer id) {
+    public ResponseDto<EmployeeDto> delete(String id) {
         if (id == null){
             return ResponseDto.<EmployeeDto>builder()
                     .message(NULL_ID)

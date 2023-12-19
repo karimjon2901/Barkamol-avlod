@@ -48,7 +48,7 @@ public class VideoGalleryResources {
             summary = "Get by id"
     )
     @GetMapping("/{id}")
-    public ResponseDto<VideoGalleryDto> getById(@PathVariable Integer id){
+    public ResponseDto<VideoGalleryDto> getById(@PathVariable String id){
         return service.getById(id);
     }
 
@@ -72,7 +72,7 @@ public class VideoGalleryResources {
             summary = "Delete"
     )
     @DeleteMapping("/{id}")
-    public ResponseDto<VideoGalleryDto> delete(@PathVariable Integer id){
+    public ResponseDto<VideoGalleryDto> delete(@PathVariable String id){
         return service.delete(id);
     }
 }

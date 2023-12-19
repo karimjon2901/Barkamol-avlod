@@ -6,6 +6,7 @@ import com.example.barkamol_avlod.dto.LoginDto;
 import com.example.barkamol_avlod.dto.ResponseDto;
 import com.example.barkamol_avlod.entity.Users;
 import com.example.barkamol_avlod.repository.UserRepository;
+import com.example.barkamol_avlod.service.IdGenerator;
 import com.example.barkamol_avlod.service.UserService;
 import com.example.barkamol_avlod.service.mapper.UserMapper;
 import lombok.RequiredArgsConstructor;

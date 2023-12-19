@@ -9,6 +9,7 @@ import com.example.barkamol_avlod.entity.Image;
 import com.example.barkamol_avlod.entity.PhotoGallery;
 import com.example.barkamol_avlod.repository.ImageRepository;
 import com.example.barkamol_avlod.repository.PhotoGalleryRepository;
+import com.example.barkamol_avlod.service.IdGenerator;
 import com.example.barkamol_avlod.service.PhotoGalleryService;
 import com.example.barkamol_avlod.service.mapper.ImageMapper;
 import com.example.barkamol_avlod.service.mapper.PhotoGalleryMapper;
@@ -30,6 +31,7 @@ public class PhotoGalleryServiceImpl implements PhotoGalleryService {
     private final PhotoGalleryMapper photoGalleryMapper;
     private final ImageMapper imageMapper;
     private final ImageRepository imageRepository;
+    private final IdGenerator idGenerator;
     @Override
     public ResponseDto<PhotoGalleryDto> add(PhotoGalleryInputDto photoGalleryInputDto) {
         try {
@@ -42,7 +44,7 @@ public class PhotoGalleryServiceImpl implements PhotoGalleryService {
                 imageRepository.save(i);
                 imageList.add(i);
             }
-
+            entity.setId(idGenerator.generate());
             entity.setImages(imageList);
             entity.setTitleUZ(photoGalleryInputDto.getTitleUZ());
             entity.setTitleRU(photoGalleryInputDto.getTitleRU());
@@ -79,7 +81,7 @@ public class PhotoGalleryServiceImpl implements PhotoGalleryService {
     }
 
     @Override
-    public ResponseDto<PhotoGalleryDto> getById(Integer id) {
+    public ResponseDto<PhotoGalleryDto> getById(String id) {
         if (id == null){
             return ResponseDto.<PhotoGalleryDto>builder()
                     .message(NULL_ID)
@@ -107,7 +109,7 @@ public class PhotoGalleryServiceImpl implements PhotoGalleryService {
     }
 
     @Override
-    public ResponseDto<PhotoGalleryDto> delete(Integer id) {
+    public ResponseDto<PhotoGalleryDto> delete(String id) {
         if (id == null){
             return ResponseDto.<PhotoGalleryDto>builder()
                     .message(NULL_ID)

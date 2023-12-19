@@ -15,7 +15,7 @@ import java.util.Collections;
 public class Users implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
     @Column(name = "username",nullable = false)
     private String username;
     @Column(name = "password",nullable = false)

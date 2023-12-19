@@ -15,7 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 @AllArgsConstructor
 @NoArgsConstructor
 public class EmployeeInputDto {
-    private Integer id;
+    private String id;
     @NotNull(message = AppStatusMessage.NULL_VALUE)
     private MultipartFile image;
     @NotNull(message = AppStatusMessage.NULL_VALUE)

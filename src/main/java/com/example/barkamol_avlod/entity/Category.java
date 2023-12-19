@@ -17,9 +17,8 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class Category {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    @OneToOne
+    private String id;
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     private Category parentId;
 
     private String nameRU;

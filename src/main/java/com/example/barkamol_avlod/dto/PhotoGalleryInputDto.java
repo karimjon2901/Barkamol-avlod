@@ -18,7 +18,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PhotoGalleryInputDto {
-    private Integer id;
+    private String id;
     @NotNull(message = AppStatusMessage.NULL_VALUE)
     @NotEmpty(message = AppStatusMessage.EMPTY_STRING)
     @Size(min = 1,max = 255,message = AppStatusMessage.SIZE_MISMATCH)

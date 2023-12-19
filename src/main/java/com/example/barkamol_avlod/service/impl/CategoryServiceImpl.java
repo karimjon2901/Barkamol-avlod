@@ -5,6 +5,7 @@ import com.example.barkamol_avlod.dto.ResponseDto;
 import com.example.barkamol_avlod.entity.Category;
 import com.example.barkamol_avlod.repository.CategoryRepository;
 import com.example.barkamol_avlod.service.CategoryService;
+import com.example.barkamol_avlod.service.IdGenerator;
 import com.example.barkamol_avlod.service.mapper.CategoryMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -19,9 +20,11 @@ import static com.example.barkamol_avlod.status.AppStatusMessage.*;
 public class CategoryServiceImpl implements CategoryService {
     private final CategoryRepository categoryRepository;
     private final CategoryMapper categoryMapper;
+    private final IdGenerator idGenerator;
     @Override
     public ResponseDto<CategoryDto> addCategory(CategoryDto categoryDto) {
         try {
+            categoryDto.setId(idGenerator.generate());
             return ResponseDto.<CategoryDto>builder()
                     .data(categoryMapper.toDto(
                             categoryRepository.save(
@@ -40,7 +43,7 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public ResponseDto<CategoryDto> getById(Integer id) {
+    public ResponseDto<CategoryDto> getById(String id) {
         if (id == null){
             return ResponseDto.<CategoryDto>builder()
                     .message(NULL_ID)
@@ -80,7 +83,7 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public ResponseDto<Void> delete(Integer id) {
+    public ResponseDto<Void> delete(String id) {
         if (id == null){
             return ResponseDto.<Void>builder()
                     .message(NULL_ID)

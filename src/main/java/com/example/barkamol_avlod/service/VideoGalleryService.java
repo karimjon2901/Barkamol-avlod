@@ -10,9 +10,9 @@ public interface VideoGalleryService {
 
     ResponseDto<List<VideoGalleryDto>> getAll();
 
-    ResponseDto<VideoGalleryDto> getById(Integer id);
+    ResponseDto<VideoGalleryDto> getById(String id);
 
     ResponseDto<VideoGalleryDto> update(VideoGalleryDto videoGalleryDto);
 
-    ResponseDto<VideoGalleryDto> delete(Integer id);
+    ResponseDto<VideoGalleryDto> delete(String id);
 }

@@ -11,9 +11,9 @@ public interface PhotoGalleryService {
 
     ResponseDto<List<PhotoGalleryDto>> getAll();
 
-    ResponseDto<PhotoGalleryDto> getById(Integer id);
+    ResponseDto<PhotoGalleryDto> getById(String id);
 
-    ResponseDto<PhotoGalleryDto> delete(Integer id);
+    ResponseDto<PhotoGalleryDto> delete(String id);
 
     ResponseDto<PhotoGalleryDto> update(PhotoGalleryInputDto photoGalleryInputDto);
 }

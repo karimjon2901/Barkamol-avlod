@@ -11,11 +11,11 @@ public interface EmployeeService {
 
     ResponseDto<List<EmployeeDto>> getAll();
 
-    ResponseDto<EmployeeDto> getById(Integer id);
+    ResponseDto<EmployeeDto> getById(String id);
 
     ResponseDto<EmployeeDto> update(EmployeeInputDto employeeInputDto);
 
-    ResponseDto<EmployeeDto> delete(Integer id);
+    ResponseDto<EmployeeDto> delete(String id);
 
     ResponseDto<List<EmployeeDto>> getTeachers();
 

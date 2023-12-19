@@ -50,7 +50,7 @@ public class PhotoGalleryResources {
             summary = "By-id"
     )
     @GetMapping("/{id}")
-    public ResponseDto<PhotoGalleryDto> getById(@PathVariable Integer id){
+    public ResponseDto<PhotoGalleryDto> getById(@PathVariable String id){
         return service.getById(id);
     }
     @Operation(
@@ -73,7 +73,7 @@ public class PhotoGalleryResources {
             summary = "Delete"
     )
     @DeleteMapping("/{id}")
-    public ResponseDto<PhotoGalleryDto> delete(@PathVariable Integer id){
+    public ResponseDto<PhotoGalleryDto> delete(@PathVariable String id){
         return service.delete(id);
     }
 }

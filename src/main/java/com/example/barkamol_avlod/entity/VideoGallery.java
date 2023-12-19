@@ -18,8 +18,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class VideoGallery {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private String id;
     private String titleRU;
     private String titleUZ;
     private String titleEN;

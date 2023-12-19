@@ -38,7 +38,7 @@ public class DirectionsResources {
             summary = "Get by id"
     )
     @GetMapping("/by-id/{id}")
-    public ResponseDto<DirectionsDto> getById(@PathVariable Integer id){
+    public ResponseDto<DirectionsDto> getById(@PathVariable String id){
         return service.getById(id);
     }
 
@@ -74,7 +74,7 @@ public class DirectionsResources {
             summary = "Delete"
     )
     @DeleteMapping("/{id}")
-    public ResponseDto<DirectionsDto> delete(@PathVariable Integer id){
+    public ResponseDto<DirectionsDto> delete(@PathVariable String id){
         return service.delete(id);
     }
 
@@ -86,7 +86,7 @@ public class DirectionsResources {
             summary = "Get by category id"
     )
     @GetMapping("/by-category/{id}")
-    public ResponseDto<List<DirectionsDto>> byCategoryId(@PathVariable Integer id){
+    public ResponseDto<List<DirectionsDto>> byCategoryId(@PathVariable String id){
         return service.getByCategoryId(id);
     }
 }

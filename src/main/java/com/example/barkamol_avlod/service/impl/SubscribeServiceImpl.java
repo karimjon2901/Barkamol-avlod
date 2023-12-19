@@ -3,6 +3,7 @@ package com.example.barkamol_avlod.service.impl;
 import com.example.barkamol_avlod.dto.ResponseDto;
 import com.example.barkamol_avlod.dto.SubscribeDto;
 import com.example.barkamol_avlod.repository.SubscribeRepository;
+import com.example.barkamol_avlod.service.IdGenerator;
 import com.example.barkamol_avlod.service.SubscribeService;
 import com.example.barkamol_avlod.service.mapper.SubscribeMapper;
 import lombok.RequiredArgsConstructor;
@@ -18,10 +19,12 @@ import static com.example.barkamol_avlod.status.AppStatusMessage.OK;
 public class SubscribeServiceImpl implements SubscribeService {
     private final SubscribeRepository repository;
     private final SubscribeMapper mapper;
+    private final IdGenerator idGenerator;
 
     @Override
     public ResponseDto<SubscribeDto> add(SubscribeDto subscribeDto) {
         try {
+            subscribeDto.setId(idGenerator.generate());
             repository.save(mapper.toEntity(subscribeDto));
 
             return ResponseDto.<SubscribeDto>builder()

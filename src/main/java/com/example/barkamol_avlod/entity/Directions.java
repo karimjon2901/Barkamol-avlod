@@ -17,8 +17,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class Directions {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private String id;
     @ManyToOne
     private Category category;
     private String image;

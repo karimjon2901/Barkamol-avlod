@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 public class NewsInputDto {
-    private Integer id;
+    private String id;
     @NotNull(message = AppStatusMessage.NULL_VALUE)
     private MultipartFile image;
     @NotNull(message = AppStatusMessage.NULL_VALUE)

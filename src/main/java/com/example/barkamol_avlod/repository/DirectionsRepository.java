@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface DirectionsRepository extends JpaRepository<Directions, Integer> {
-    List<Directions> findAllByCategoryId(Integer id);
+public interface DirectionsRepository extends JpaRepository<Directions, String> {
+    List<Directions> findAllByCategoryId(String id);
 }
