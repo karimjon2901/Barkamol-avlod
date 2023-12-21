@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.data.annotation.CreatedDate;
 
 import java.time.LocalDateTime;
@@ -22,5 +23,6 @@ public class Partners {
     private String nameUZ;
     private String nameEN;
     @CreatedDate
+    @CreationTimestamp
     private LocalDateTime createdAt;
 }

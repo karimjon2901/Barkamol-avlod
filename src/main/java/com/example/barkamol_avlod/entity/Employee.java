@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.data.annotation.CreatedDate;
 
 import java.time.LocalDateTime;
@@ -34,5 +35,6 @@ public class Employee {
     private String facebook;
     private String role;
     @CreatedDate
+    @CreationTimestamp
     private LocalDateTime createdAt;
 }
