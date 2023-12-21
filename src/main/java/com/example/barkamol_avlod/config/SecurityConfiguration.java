@@ -32,7 +32,7 @@ public class SecurityConfiguration{
                 .authorizeHttpRequests()
                 .requestMatchers("/v3/api-docs/**", "/swagger-ui/**", "/swagger-ui.html").permitAll()
                 .requestMatchers(HttpMethod.POST, "/admin/login").permitAll()
-                .requestMatchers(HttpMethod.GET, "/videos","/videos/**", "/statistics","/photo","/photo", "/partners", "/news","/news/**", "/employee","/employee/**", "/directions","/directions/**","/category","/category/**", "/about").permitAll()
+                .requestMatchers(HttpMethod.GET, "/videos","/videos/**", "/statistics","/photo/**","/photo","/partners", "/news","/news/**", "/employee","/employee/**", "/directions","/directions/**","/category","/category/**", "/about").permitAll()
                 .requestMatchers(HttpMethod.POST, "/subscribe").permitAll()
                 .anyRequest()
                 .authenticated()
