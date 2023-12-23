@@ -4,6 +4,7 @@ import com.example.barkamol_avlod.dto.ResponseDto;
 import com.example.barkamol_avlod.dto.VideoGalleryDto;
 import com.example.barkamol_avlod.entity.VideoGallery;
 import com.example.barkamol_avlod.repository.VideoGalleryRepository;
+import com.example.barkamol_avlod.service.IdGenerator;
 import com.example.barkamol_avlod.service.VideoGalleryService;
 import com.example.barkamol_avlod.service.mapper.VideoGalleryMapper;
 import lombok.RequiredArgsConstructor;
@@ -19,10 +20,12 @@ import static com.example.barkamol_avlod.status.AppStatusMessage.*;
 public class VideoGalleryServiceImpl implements VideoGalleryService {
     private final VideoGalleryRepository repository;
     private final VideoGalleryMapper mapper;
+    private final IdGenerator idGenerator;
 
     @Override
     public ResponseDto<VideoGalleryDto> add(VideoGalleryDto videoGalleryDto) {
         try {
+            videoGalleryDto.setId(idGenerator.generate());
             repository.save(mapper.toEntity(videoGalleryDto));
             return ResponseDto.<VideoGalleryDto>builder()
                     .message(OK)
